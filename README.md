@@ -1,3 +1,3 @@
 # sdl-things
 
-SDL2 experimentation.
+SDL2 experimentation. 👾
