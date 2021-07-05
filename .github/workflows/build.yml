@@ -11,13 +11,10 @@ on:
       - published
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install SDL2
-        run: sudo apt-get install libsdl2-dev
+        run: brew install sdl2
       - name: Build project
         run: make
