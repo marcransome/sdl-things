@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 #include "init.h"
 #include "types.h"
@@ -36,7 +37,12 @@ initialise(void) {
     memset(&g, 0, sizeof(g));
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        fprintf(stderr, "Failed to initialise: %s\n", SDL_GetError());
+        fprintf(stderr, "Failed to initialise SDL: %s\n", SDL_GetError());
+        exit(EXIT_FAILURE);
+    }
+
+    if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) {
+        fprintf(stderr, "Failed to initialise SDL_image: %s\n", IMG_GetError());
         exit(EXIT_FAILURE);
     }
 
@@ -56,6 +62,7 @@ initialise(void) {
 void
 cleanup(void) {
     SDL_Quit();
+    IMG_Quit();
 }
 
 static SDL_Window *

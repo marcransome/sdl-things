@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 #include "draw.h"
 #include "types.h"
@@ -37,4 +38,16 @@ prepare_scene(void) {
 void
 present_scene(void) {
     SDL_RenderPresent(g.renderer);
+}
+
+SDL_Texture *
+load_texture(char *filename) {
+    SDL_Texture *texture;
+
+    if ((texture = IMG_LoadTexture(g.renderer, filename)) == NULL) {
+        fprintf(stderr, "Unable to load texture: %s", filename);
+        exit(EXIT_FAILURE);
+    }
+
+    return texture;
 }

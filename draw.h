@@ -26,4 +26,6 @@
 void prepare_scene(void);
 void present_scene(void);
 
+SDL_Texture * load_texture(char *filename);
+
 #endif /* !DRAW_H */
