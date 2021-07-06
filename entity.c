@@ -38,5 +38,6 @@ new_entity(void) {
 
 void
 free_entity(entity *e) {
+    SDL_DestroyTexture(e->texture);
     free(e);
 }

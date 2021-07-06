@@ -61,6 +61,8 @@ initialise(void) {
 
 void
 cleanup(void) {
+    SDL_DestroyRenderer(g.renderer);
+    SDL_DestroyWindow(g.window);
     SDL_Quit();
     IMG_Quit();
 }
