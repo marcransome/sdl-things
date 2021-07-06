@@ -1,5 +1,5 @@
-CFLAGS  = `pkg-config --cflags sdl2` `pkg-config --cflags sdl2_image`
-LDFLAGS = `pkg-config --libs sdl2` `pkg-config --libs sdl2_image`
+CFLAGS  = `pkg-config --cflags sdl2 sdl2_image`
+LDFLAGS = `pkg-config --libs sdl2 sdl2_image`
 
 OBJECTS = \
 	draw.o \
