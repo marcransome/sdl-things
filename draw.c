@@ -26,6 +26,7 @@
 
 #include "draw.h"
 #include "types.h"
+#include "entity.h"
 
 extern game g;
 
@@ -50,4 +51,19 @@ load_texture(char *filename) {
     }
 
     return texture;
+}
+
+void
+draw_entity(entity *e) {
+    SDL_Rect target;
+    target.x = e->x;
+    target.y = e->y;
+
+    if (SDL_QueryTexture(e->texture, NULL, NULL, &target.w, &target.h) < 0) {
+        fprintf(stderr, "Unable to query texture: %s", SDL_GetError());
+    }
+
+    if (SDL_RenderCopy(g.renderer, e->texture, NULL, &target) > 0) {
+        fprintf(stderr, "Unable to copy texture: %s", SDL_GetError());
+    }
 }

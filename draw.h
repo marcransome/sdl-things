@@ -23,9 +23,12 @@
 #ifndef DRAW_H
 #define DRAW_H
 
+#include "entity.h"
+
 void prepare_scene(void);
 void present_scene(void);
 
 SDL_Texture * load_texture(char *filename);
+void draw_entity(entity *e);
 
 #endif /* !DRAW_H */

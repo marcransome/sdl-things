@@ -5,7 +5,8 @@ OBJECTS = \
 	draw.o \
 	event.o \
 	main.o \
-	init.o
+	init.o \
+	entity.o
 
 all: game
 

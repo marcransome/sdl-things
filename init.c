@@ -37,22 +37,22 @@ initialise(void) {
     memset(&g, 0, sizeof(g));
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        fprintf(stderr, "Failed to initialise SDL: %s\n", SDL_GetError());
+        fprintf(stderr, "Failed to initialise SDL2: %s", SDL_GetError());
         exit(EXIT_FAILURE);
     }
 
     if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) {
-        fprintf(stderr, "Failed to initialise SDL_image: %s\n", IMG_GetError());
+        fprintf(stderr, "Failed to initialise SDL2_image: %s", IMG_GetError());
         exit(EXIT_FAILURE);
     }
 
     if ((g.window = create_window()) == NULL) {
-        fprintf(stderr, "Failed to create window: %s\n", SDL_GetError());
+        fprintf(stderr, "Failed to create window: %s", SDL_GetError());
         exit(EXIT_FAILURE);
     }
 
     if ((g.renderer = create_renderer()) == NULL) {
-        fprintf(stderr, "Failed to create renderer: %s\n", SDL_GetError());
+        fprintf(stderr, "Failed to create renderer: %s", SDL_GetError());
         exit(EXIT_FAILURE);
     }
 
